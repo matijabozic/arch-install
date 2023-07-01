@@ -1,0 +1,138 @@
+/* Poor man's CSS reset */
+* {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+#window {
+
+}
+
+window#waybar {
+  font-family: Noto Sans;
+  font-weight: 500;
+  font-size: 14px;
+  background-color: #282c34; /* Background color of the bar */
+  color: #abb2bf; /* Text color of the bar */
+}
+
+/*
+window#waybar.hidden {
+  opacity: 0.2;
+}
+window#waybar.empty {
+  background-color: transparent;
+}
+window#waybar.solo {
+  background-color: #FFFFFF;
+}
+window#waybar.termite {
+  background-color: #3F3F3F;
+}
+window#waybar.chromium {
+  background-color: #000000;
+  border: none;
+}
+*/
+
+/******************************************************************************/
+/* WORKSPACE BUTTONS */
+/******************************************************************************/
+button {
+  border-radius: 0; /* Remove predefined border-radius */
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+button:hover {
+  box-shadow: none; /* Remove predefined box-shadow */
+  text-shadow: none; /* Remove predefined text-shadow */
+  background: none; /* Remove predefined background color (white) */
+  transition: none; /* Disable predefined animations */
+}
+
+/******************************************************************************/
+/* WORKSPACES BAR */
+/******************************************************************************/
+#workspaces {
+}
+
+#workspaces button {
+  background-color: #178ae8;
+  color: #282c34;
+  margin: 4px 0px 4px 4px;
+  min-width: 32px;
+  border-radius: 4px;
+
+}
+
+#workspaces button:hover {
+  background-color: #61afef;
+}
+
+#workspaces button.focused {
+  background-color: #61afef;
+}
+
+#workspaces button.urgent {
+  background-color: #d22d3a;
+}
+
+#mode {
+}
+
+/******************************************************************************/
+/* MODULES CONTAINERS */
+/******************************************************************************/
+.modules-left {
+}
+.modules-center {
+}
+.modules-right {
+}
+
+#backlight,
+#battery,
+#clock,
+#cpu,
+#custom-media,
+#disk,
+#idle_inhibitor,
+#memory,
+#mode,
+#mpd,
+#network,
+#pulseaudio,
+#scratchpad,
+#temperature,
+#tray,
+#user,
+#wireplumber {
+  margin: 4px 4px 4px 0px;
+  padding: 0px 5px;
+  background-color: #178ae8;
+  color: #282c34;
+  min-width: 32px;
+  border-radius: 4px;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+  margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+  margin-right: 0;
+}
+
+label:focus {
+  background-color: #000000;
+}
+
+/* @keyframes blink {
+  to {
+    background-color: #ffffff;
+    color: #000000;
+  }
+} */

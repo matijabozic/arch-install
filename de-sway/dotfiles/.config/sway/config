@@ -1,0 +1,327 @@
+#-------------------------------------------------------------------------------
+# Read `man 5 sway` for a complete reference.
+#-------------------------------------------------------------------------------
+xwayland enable
+
+#-------------------------------------------------------------------------------
+# Define variables to use through this configuration
+#-------------------------------------------------------------------------------
+set $monitor eDP-1
+set $monitor_resolution 3440x1440
+set $monitor_scale 1.25
+set $modifier Mod1
+set $launcher tofi-drun
+set $terminal foot
+set $wallpaper "~/wallpapers/5160x2160.png"
+
+#-------------------------------------------------------------------------------
+# Start deamons on Sway start
+#-------------------------------------------------------------------------------
+exec {
+# Start Polkit Authentication Agent
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+# Start Network Manager Applet
+nm-applet
+}
+
+#-------------------------------------------------------------------------------
+# Start deamons on each Sway reload
+#-------------------------------------------------------------------------------
+exec_always {
+  # gsettings set org.gnome.desktop.interface gtk-theme "Redmond"
+  # gsettings set org.gnome.desktop.interface icon-theme "Mint-Y-Sand"
+  # gsettings set org.gnome.desktop.interface cursor-theme "Adwaita"
+  # gsettings set org.gnome.desktop.interface font-name "Noto Sans Regular"
+  # gsettings set org.gnome.desktop.interface monospace-font-name "Noto Sans Mono"
+  # gsettings set org.gnome.desktop.interface color-scheme "color-scheme"
+  # gsettings set org.gnome.desktop.input-sources show-all-sources true
+
+  # gsettings set org.gnome.desktop.interface cursor-theme "Adwaita"
+  # gsettings set org.gnome.desktop.interface cursor-size 24
+  # seat seat0 xcursor_theme Adwaita 24
+
+  #kvantummanager --set "$kvantum-theme"
+}
+
+#-------------------------------------------------------------------------------
+# Make selected apps start in a floating window
+# `swaymsg -t get_tree` - gives you id's of opened apps
+#-------------------------------------------------------------------------------
+for_window [shell="xdg_shell" app_id="pcmanfm"] floating enable
+for_window [shell="xdg_shell" app_id="pavucontrol"] floating enable
+for_window [shell="xdg_shell" app_id="nm-connection-editor"] floating enable
+for_window [shell="xdg_shell" app_id="blueman-manager"] floating enable
+for_window [shell="xdg_shell" app_id="file-roller"] floating enable
+for_window [shell="xdg_shell" app_id="cpupower-gui"] floating enable
+
+for_window [shell="xdg_shell" title="Open File"] floating enable
+for_window [shell="xdg_shell" title="Open Folder"] floating enable
+for_window [shell="xdg_shell" title="Add Folder to Workspace"] floating enable
+
+# Shows in title bar if Wayland (xdg_shell) or xwayland is used
+for_window [shell=".*"] title_format "%title :: %shell"
+
+#-------------------------------------------------------------------------------
+# Look and feel
+# Manual: `man 5 sway
+#------------------------------------------------------------------------------
+
+# seat seat0 xcursor_theme capitaine-cursors-light
+
+# +---------------------------------------------+
+# | Color         |  Bright   /  Dark     |  n  |
+# +---------------------------------------------+
+# | Atom Black    |  #282c34  /  #0b0c0e  |  1  |
+# | Atom Red      |  #e06c75  /  #d22d3a  |  2  |
+# | Atom Green    |  #98c379  /  #6b9e47  |  3  |
+# | Atom Yellow   |  #e5c07b  /  #d9a33f  |  4  |
+# | Atom Blue     |  #61afef  /  #178ae8  |  5  |
+# | Atom Magenta  |  #c678dd  /  #a833cc  |  6  |
+# | Atom Cyan     |  #56b6c2  /  #368b96  |  7  |
+# | Atom White    |  #abb2bf  /  #7c879c  |  8  |
+# +---------------------------------------------+
+# Windows Blue      - #0078d7
+# Windows Blue Dark - #0063B1
+
+set $colorB1 #282c34
+set $colorB2 #e06c75
+set $colorB3 #98c379
+set $colorB4 #e5c07b
+set $colorB5 #61afef
+set $colorB6 #c678dd
+set $colorB7 #56b6c2
+set $colorB8 #abb2bf
+
+set $colorD1 #0b0c0e
+set $colorD2 #d22d3a
+set $colorD3 #6b9e47
+set $colorD4 #d9a33f
+set $colorD5 #178ae8
+set $colorD6 #a833cc
+set $colorD7 #368b96
+set $colorD8 #7c879c
+
+# Desktop settings
+default_border pixel 2
+default_floating_border pixel 2
+focus_follows_mouse no
+focus_wrapping no
+font pango: Noto Sans Reguar 10
+gaps {
+  inner 5
+}
+smart_borders off
+smart_gaps off
+title_align center
+titlebar_border_thickness 2
+titlebar_padding 4
+
+# Clients (Windows) settings
+# class                   border    background  text      indicator  child_border (window border)
+client.focused $colorD5 $colorD5 $colorD1 $colorD2 $colorD5
+client.unfocused $colorB8 $colorB8 $colorD1 $colorB8 $colorB8
+client.focused_inactive $colorB8 $colorB8 $colorD1 $colorB8 $colorB8
+client.focused_tab_title $colorB8 $colorB8 $colorD1 $colorB8 $colorB8
+client.urgent $colorD2 $colorD2 $colorD1 $colorD5 $colorD2
+#client.placeholder       $color00  $color00    $color01  $color04   $color00
+
+#-------------------------------------------------------------------------------
+# Swaybar
+# Manual: `man 5 sway-bar`
+#-------------------------------------------------------------------------------
+# include swaybar.conf
+
+#-------------------------------------------------------------------------------
+# Waybar
+# Manual: `man 5 waybar`
+#-------------------------------------------------------------------------------
+bar swaybar_command waybar
+
+#-------------------------------------------------------------------------------
+# Output configuration
+# List outputs: `swaymsg -t get_outputs`
+# Manual: `man 5 sway-output`
+#-------------------------------------------------------------------------------
+output * {
+  # background $wallpaper fill
+}
+
+output $monitor {
+  resolution $monitor_resolution
+  scale $monitor_scale
+  scale_filter smart
+  #subpixel rgb
+  max_render_time off
+  adaptive_sync off
+}
+
+#-------------------------------------------------------------------------------
+# Input configuration
+# List inputs: `swaymsg -t get_inputs`
+# Manual: `man 5 sway-input`
+#-------------------------------------------------------------------------------
+
+# Mouse
+input type:pointer {
+  accel_profile flat
+  dwt enabled
+  natural_scroll disabled
+  scroll_factor 1
+}
+
+# Keyboard
+input type:keyboard {
+  repeat_delay 500
+  xkb_capslock disabled
+  xkb_numlock disabled
+}
+
+# Touchpad
+input type:touchpad {
+  accel_profile flat
+  dwt enabled
+  middle_emulation enabled
+  natural_scroll enabled
+  scroll_factor 1
+  scroll_method two_finger
+  tap enabled
+}
+
+#-------------------------------------------------------------------------------
+# Idle configuration
+# Manual: `man swayidle`, `man swaylock`, `man swaymsg`
+#-------------------------------------------------------------------------------
+exec swayidle -w \
+timeout 600 'swaylock -f -c 000000' \
+timeout 900 'swaymsg "output * power off"' resume 'swaymsg "output * power on"'
+
+#-------------------------------------------------------------------------------
+# Key bindings
+#-------------------------------------------------------------------------------
+
+# Lock screen with swaylock
+bindsym $modifier+l exec swaylock -f -c 000000
+
+# Start a terminal
+bindsym $modifier+Return exec $terminal
+
+# Start your launcher in default direction
+bindsym $modifier+d exec $launcher
+
+# Kill focused window
+bindsym $modifier+c kill
+
+# Make the current window fullscreen
+bindsym $modifier+f fullscreen
+
+# Toggle the current window between tiling and floating mode
+bindsym $modifier+Shift+space floating toggle
+
+# Toggle the current window between tiling and floating mode (mod + left mouse click)
+# bindsym --border $modifier+BTN_LEFT floating toggle
+
+# Swap focus between the tiling area and the floating area
+bindsym $modifier+space focus mode_toggle
+
+# Move focus to the parent window
+bindsym $modifier+a focus parent
+
+# Make floating window stick to all workspaces
+bindsym $modifier+z sticky toggle
+
+# Drag / resize windows by holding down $modifier and left / right mouse button.
+floating_modifier $modifier normal
+
+# Reload the configuration file
+bindsym $modifier+Shift+c reload
+
+# Exit sway (logs you out of your Wayland session)
+bindsym $modifier+Shift+x exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+
+# Move your focus to another window
+bindsym $modifier+Left focus left
+bindsym $modifier+Down focus down
+bindsym $modifier+Up focus up
+bindsym $modifier+Right focus right
+
+# Move focused window to another location
+bindsym $modifier+Shift+Left move left
+bindsym $modifier+Shift+Down move down
+bindsym $modifier+Shift+Up move up
+bindsym $modifier+Shift+Right move right
+
+# Switch to another workspace
+bindsym $modifier+1 workspace number 1
+bindsym $modifier+2 workspace number 2
+bindsym $modifier+3 workspace number 3
+bindsym $modifier+4 workspace number 4
+bindsym $modifier+5 workspace number 5
+bindsym $modifier+6 workspace number 6
+bindsym $modifier+7 workspace number 7
+bindsym $modifier+8 workspace number 8
+bindsym $modifier+9 workspace number 9
+bindsym $modifier+0 workspace number 10
+
+# Move focused window to another workspace
+bindsym $modifier+Shift+1 move container to workspace number 1
+bindsym $modifier+Shift+2 move container to workspace number 2
+bindsym $modifier+Shift+3 move container to workspace number 3
+bindsym $modifier+Shift+4 move container to workspace number 4
+bindsym $modifier+Shift+5 move container to workspace number 5
+bindsym $modifier+Shift+6 move container to workspace number 6
+bindsym $modifier+Shift+7 move container to workspace number 7
+bindsym $modifier+Shift+8 move container to workspace number 8
+bindsym $modifier+Shift+9 move container to workspace number 9
+bindsym $modifier+Shift+0 move container to workspace number 10
+
+# You can "split" the current window of your focus with $modifier+b or $modifier+v
+bindsym $modifier+b splith
+bindsym $modifier+v splitv
+
+# Toggle workspace layout <split|splitv|splith|tabbed|stacking>
+bindsym $modifier+Tab layout toggle splith splitv tabbed stacking
+bindsym $modifier+q layout toggle split
+bindsym $modifier+w layout tabbed
+bindsym $modifier+e layout stacking
+
+#-------------------------------------------------------------------------------
+# Scratchpad
+# Sway has a "scratchpad", which is a bag for holding for windows.
+#-------------------------------------------------------------------------------
+
+# Move the currently focused window to the scratchpad
+bindsym $modifier+Shift+minus move scratchpad
+
+# Show the next scratchpad window or hide the focused scratchpad window.
+# If there are multiple scratchpad windows, this command cycles through them.
+bindsym $modifier+minus scratchpad show
+
+#-------------------------------------------------------------------------------
+# Resizing containers
+#-------------------------------------------------------------------------------
+mode "resize" {
+  bindsym Left resize shrink width 10px
+  bindsym Down resize grow height 10px
+  bindsym Up resize shrink height 10px
+  bindsym Right resize grow width 10px
+  # Return to default mode
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+bindsym $modifier+r mode "resize"
+
+#-------------------------------------------------------------------------------
+# Media keys (depends on brightnessctl for brightness control)
+#-------------------------------------------------------------------------------
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym XF86MonBrightnessDown exec brightnessctl set 1%-
+bindsym XF86MonBrightnessUp exec brightnessctl set 1%+
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86Search exec $launcher
+
+include /etc/sway/config.d/*

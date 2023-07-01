@@ -1,0 +1,64 @@
+#-------------------------------------------------------------------------------
+# OPTIONS
+#-------------------------------------------------------------------------------
+# config <path>
+# daemonize
+# debug
+# help
+# version
+ignore-empty-password
+show-failed-attempts
+
+#-------------------------------------------------------------------------------
+# APPEARANCE
+#-------------------------------------------------------------------------------
+font=Noto Sans Regular
+font-size=14
+color=000000
+# image=<path>
+# scaling=fill
+# indicator-idle-visible
+indicator-radius=50
+indicator-thickness=10
+# disable-caps-lock-text
+# hide-keyboard-layout
+# indicator-caps-lock
+# indicator-x-position <x>
+# indicator-y-position <y>
+# line-uses-inside
+# line-uses-ring
+# no-unlock-indicator
+# show-keyboard-layout
+
+#-------------------------------------------------------------------------------
+# COLORS
+#-------------------------------------------------------------------------------
+# color <rrggbb[aa]>
+# bs-hl-color <rrggbb[aa]>
+# caps-lock-bs-hl-color <rrggbb[aa]>
+# caps-lock-key-hl-color <rrggbb[aa]>
+# inside-caps-lock-color <rrggbb[aa]>
+# inside-clear-color <rrggbb[aa]>
+# inside-color <rrggbb[aa]>
+# inside-ver-color <rrggbb[aa]>
+# inside-wrong-color <rrggbb[aa]>
+# key-hl-color <rrggbb[aa]>
+# layout-bg-color <rrggbb[aa]>
+# layout-border-color <rrggbb[aa]>
+# layout-text-color <rrggbb[aa]>
+# line-caps-lock-color <rrggbb[aa]>
+# line-clear-color <rrggbb[aa]>
+# line-color <rrggbb[aa]>
+# line-ver-color <rrggbb[aa]>
+# line-wrong-color <rrggbb[aa]>
+# ring-caps-lock-color <rrggbb[aa]>
+# ring-clear-color <rrggbb[aa]>
+# ring-color <rrggbb[aa]>
+# ring-ver-color <rrggbb[aa]>
+# ring-wrong-color <rrggbb[aa]>
+# separator-color <rrggbb[aa]>
+# text-caps-lock-color <rrggbb[aa]>
+# text-clear-color <rrggbb[aa]>
+# text-color <rrggbb[aa]>
+# text-ver-color <rrggbb[aa]>
+# text-wrong-color <rrggbb[aa]>
