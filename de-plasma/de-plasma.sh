@@ -83,9 +83,8 @@ packages+=("plasma-pa")      # Plasma applet for audio volume management using P
 #-------------------------------------------------------------------------------
 # Bluetooth
 #-------------------------------------------------------------------------------
-#packages+=("bluez") # Daemons for the bluetooth protocol stack
-#packages+=("blueman") # GTK+ Bluetooth Manager
-#packages+=("blueberry") # Bluetooth configuration tool
+#packages+=("bluez")     # Daemons for the bluetooth protocol stack
+#packages+=("bluedevil") # Integrate the Bluetooth technology within KDE workspace and applications
 
 #-------------------------------------------------------------------------------
 # Development
