@@ -68,7 +68,7 @@ packages+=("plasma-pa")      # Plasma applet for audio volume management using P
 #-------------------------------------------------------------------------------
 # Fonts
 #-------------------------------------------------------------------------------
-#packages+=("noto-fonts")                  # Google Noto TTF fonts
+packages+=("noto-fonts")                  # Google Noto TTF fonts
 #packages+=("adobe-source-code-pro-fonts") # Monospaced font family for user interface and coding environments
 #packages+=("otf-font-awesome")            # Iconic font designed for Bootstrap
 #packages+=("ttf-cascadia-code")           # A monospaced font by Microsoft that includes programming ligatures
@@ -85,15 +85,6 @@ packages+=("plasma-pa")      # Plasma applet for audio volume management using P
 #-------------------------------------------------------------------------------
 #packages+=("bluez")     # Daemons for the bluetooth protocol stack
 #packages+=("bluedevil") # Integrate the Bluetooth technology within KDE workspace and applications
-
-#-------------------------------------------------------------------------------
-# Development
-#-------------------------------------------------------------------------------
-#packages+=("deno")   # A secure runtime for JavaScript and TypeScript
-#packages+=("git")    # The fast distributed version control system
-#packages+=("nodejs") # Evented I/O for V8 javascript
-#packages+=("npm")    # A package manager for javascript
-#packages+=("python") # Next generation of the python high-level scripting language
 
 #-------------------------------------------------------------------------------
 # Applications
