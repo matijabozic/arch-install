@@ -13,6 +13,12 @@ Install git
 pacman -Sy git
 ```
 
+Change DNS and restart network so DNS change takes effect
+```
+vim /etc/systemd/resolved.conf
+systemctl restart systemd-resolved
+```
+
 Download script
 ```
 git clone https://github.com/matijabozic/arch-install
@@ -37,3 +43,4 @@ Run script
 ```
 ./arch-install.sh
 ```
+
