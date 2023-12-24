@@ -8,7 +8,6 @@ set -u          # Treat unset variables as an error and immediately exit.
 set -o pipefail # Exit on errors in pipeline
 
 packages=()
-packages_aur=()
 
 #-------------------------------------------------------------------------------
 # Sway
@@ -18,7 +17,7 @@ packages+=("swaybg")   # Wallpaper tool for Wayland compositors
 packages+=("swaylock") # Screen locker for Wayland
 packages+=("swayidle") # Idle management daemon for Wayland
 packages+=("mako")     # Lightweight notification daemon for Wayland
-packages_aur+=("tofi") # Launcher for wlroots-based wayland compositors
+packages+=("wofi")     # Launcher for wlroots-based wayland compositors
 packages+=("waybar")   # Highly customizable Wayland bar for Sway and Wlroots based compositors
 packages+=("foot")     # Fast, lightweight, and minimalistic Wayland terminal emulator
 packages+=("neovim")   # Fork of Vim aiming to improve user experience, plugins, and GUIs
@@ -51,6 +50,17 @@ packages+=("xorg-xhost")             # Server access control program for X (gpar
 packages+=("xorg-xwayland")          # Run X clients under wayland
 
 #-------------------------------------------------------------------------------
+# Audio - https://wiki.archlinux.org/title/PipeWire
+#-------------------------------------------------------------------------------
+packages+=("pipewire")       # Low-latency audio/video router and processor
+packages+=("wireplumber")    # Session / policy manager implementation for PipeWire
+packages+=("pipewire-alsa")  # Low-latency audio/video router and processor - ALSA configuration
+packages+=("pipewire-audio") # Low-latency audio/video router and processor - Audio support
+packages+=("pipewire-jack")  # Low-latency audio/video router and processor - JACK support
+packages+=("pipewire-pulse") # Low-latency audio/video router and processor - PulseAudio replacement
+packages+=("pavucontrol")    # PulseAudio Volume Control
+
+#-------------------------------------------------------------------------------
 # Graphics Drivers
 #-------------------------------------------------------------------------------
 # AMD
@@ -79,17 +89,6 @@ packages+=("p7zip")        # Command-line file archiver with high compression ra
 packages+=("ntfs-3g")      # NTFS filesystem driver and utilities
 
 #-------------------------------------------------------------------------------
-# Audio - https://wiki.archlinux.org/title/PipeWire
-#-------------------------------------------------------------------------------
-packages+=("pipewire")       # Low-latency audio/video router and processor
-packages+=("wireplumber")    # Session / policy manager implementation for PipeWire
-packages+=("pipewire-alsa")  # Low-latency audio/video router and processor - ALSA configuration
-packages+=("pipewire-audio") # Low-latency audio/video router and processor - Audio support
-packages+=("pipewire-jack")  # Low-latency audio/video router and processor - JACK support
-packages+=("pipewire-pulse") # Low-latency audio/video router and processor - PulseAudio replacement
-packages+=("pavucontrol")    # PulseAudio Volume Control
-
-#-------------------------------------------------------------------------------
 # Bluetooth
 #-------------------------------------------------------------------------------
 packages+=("bluez")   # Daemons for the bluetooth protocol stack
@@ -98,13 +97,13 @@ packages+=("blueman") # GTK+ Bluetooth Manager
 #-------------------------------------------------------------------------------
 # Fonts
 #-------------------------------------------------------------------------------
-packages+=("font-manager")                # A simple font management application for GTK+ Desktop Environments
-packages+=("adobe-source-code-pro-fonts") # Monospaced font family for user interface and coding environments
-packages+=("noto-fonts")                  #	Google Noto TTF fonts
-packages+=("otf-font-awesome")            # Iconic font designed for Bootstrap
-packages+=("ttf-liberation")              # Font family which aims at metric compatibility with Arial, Times New Roman, and Courier New
-packages+=("ttf-cascadia-code")           # A monospaced font by Microsoft that includes programming ligatures
-packages+=("ttf-jetbrains-mono")          # Typeface for developers, by JetBrains
+#packages+=("font-manager")                # A simple font management application for GTK+ Desktop Environments
+#packages+=("adobe-source-code-pro-fonts") # Monospaced font family for user interface and coding environments
+#packages+=("noto-fonts")                  #	Google Noto TTF fonts
+#packages+=("otf-font-awesome")            # Iconic font designed for Bootstrap
+#packages+=("ttf-liberation")              # Font family which aims at metric compatibility with Arial, Times New Roman, and Courier New
+#packages+=("ttf-cascadia-code")           # A monospaced font by Microsoft that includes programming ligatures
+#packages+=("ttf-jetbrains-mono")          # Typeface for developers, by JetBrains
 #packages+=("ttf-fira-code")              # Monospaced font with programming ligatures
 #packages+=("ttf-roboto-mono")            # A monospaced addition to the Roboto type family.
 #packages+=("ttf-roboto")                 # Google's signature family of fonts
@@ -128,18 +127,11 @@ packages+=("ttf-jetbrains-mono")          # Typeface for developers, by JetBrain
 #-------------------------------------------------------------------------------
 # Development
 #-------------------------------------------------------------------------------
-packages+=("deno")   # A secure runtime for JavaScript and TypeScript
-packages+=("git")    # The fast distributed version control system
-packages+=("nodejs") # Evented I/O for V8 javascript
-packages+=("npm")    # A package manager for javascript
-packages+=("python") # Next generation of the python high-level scripting language
-
-#-------------------------------------------------------------------------------
-# AUR packages
-#-------------------------------------------------------------------------------
-packages_aur+=("visual-studio-code-bin")
-packages_aur+=("google-chrome")
-packages_aur+=("cpupower-gui")
+#packages+=("deno")   # A secure runtime for JavaScript and TypeScript
+#packages+=("git")    # The fast distributed version control system
+#packages+=("nodejs") # Evented I/O for V8 javascript
+#packages+=("npm")    # A package manager for javascript
+#packages+=("python") # Next generation of the python high-level scripting language
 
 #-------------------------------------------------------------------------------
 # Install packages
@@ -164,15 +156,4 @@ pacman -S "${packages[@]}"
 #-------------------------------------------------------------------------------
 # Copy dotfiles into /home/$USER/.config/
 #-------------------------------------------------------------------------------
-
-#-------------------------------------------------------------------------------
-# TO DO!
-#-------------------------------------------------------------------------------
-# sworkstyle
-# openssh
-# https://github.com/vinifmor/bauh
-# imv
-# sov
-# flatpak-xdg-utils
-#
 #-------------------------------------------------------------------------------
