@@ -24,6 +24,17 @@ packages+=("dolphin")                # KDE File Manager
 packages+=("ark")                    # Archiving Tool
 
 #-------------------------------------------------------------------------------
+# Audio
+#-------------------------------------------------------------------------------
+packages+=("pipewire")       # Low-latency audio/video router and processor
+packages+=("wireplumber")    # Session / policy manager implementation
+packages+=("pipewire-alsa")  # ALSA configuration
+packages+=("pipewire-audio") # Audio support
+packages+=("pipewire-jack")  # JACK support
+packages+=("pipewire-pulse") # PulseAudio replacement
+packages+=("plasma-pa")      # Plasma applet for audio volume management using PulseAudio
+
+#-------------------------------------------------------------------------------
 # Plasma Desktop Utilities
 #-------------------------------------------------------------------------------
 #packages+=("yakuake")             # A drop-down terminal emulator based on KDE konsole technology
@@ -53,17 +64,6 @@ packages+=("ark")                    # Archiving Tool
 #-------------------------------------------------------------------------------
 #packages+=("vulkan-radeon")       #	Radeon's Vulkan mesa driver
 #packages+=("lib32-vulkan-radeon") #	Radeon's Vulkan mesa driver (32-bit)
-
-#-------------------------------------------------------------------------------
-# Audio
-#-------------------------------------------------------------------------------
-packages+=("pipewire")       # Low-latency audio/video router and processor
-packages+=("wireplumber")    # Session / policy manager implementation
-packages+=("pipewire-alsa")  # ALSA configuration
-packages+=("pipewire-audio") # Audio support
-packages+=("pipewire-jack")  # JACK support
-packages+=("pipewire-pulse") # PulseAudio replacement
-packages+=("plasma-pa")      # Plasma applet for audio volume management using PulseAudio
 
 #-------------------------------------------------------------------------------
 # Fonts
