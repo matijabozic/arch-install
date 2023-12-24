@@ -68,7 +68,7 @@ packages+=("plasma-pa")      # Plasma applet for audio volume management using P
 #-------------------------------------------------------------------------------
 # Fonts
 #-------------------------------------------------------------------------------
-packages+=("adobe-source-code-pro-fonts") # Monospaced font family for user interface and coding environments
+#packages+=("adobe-source-code-pro-fonts") # Monospaced font family for user interface and coding environments
 #packages+=("noto-fonts")                  # Google Noto TTF fonts
 #packages+=("otf-font-awesome")            # Iconic font designed for Bootstrap
 #packages+=("ttf-cascadia-code")           # A monospaced font by Microsoft that includes programming ligatures
