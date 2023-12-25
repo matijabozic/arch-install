@@ -83,8 +83,8 @@ packages+=("noto-fonts")                  # Google Noto TTF fonts
 #-------------------------------------------------------------------------------
 # Bluetooth
 #-------------------------------------------------------------------------------
-#packages+=("bluez")     # Daemons for the bluetooth protocol stack
-#packages+=("bluedevil") # Integrate the Bluetooth technology within KDE workspace and applications
+packages+=("bluez")     # Daemons for the bluetooth protocol stack
+packages+=("bluedevil") # Integrate the Bluetooth technology within KDE workspace and applications
 
 #-------------------------------------------------------------------------------
 # Applications
