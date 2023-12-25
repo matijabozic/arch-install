@@ -104,3 +104,9 @@ packages+=("noto-fonts")                  # Google Noto TTF fonts
 # Install packages
 #-------------------------------------------------------------------------------
 pacman -Syu "${packages[@]}"
+
+#-------------------------------------------------------------------------------
+# Enable services
+#-------------------------------------------------------------------------------
+systemctl enable sddm.service
+systemctl enable bluetooth.service
