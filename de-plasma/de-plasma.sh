@@ -24,20 +24,12 @@ packages+=("dolphin")                # KDE File Manager
 packages+=("ark")                    # Archiving Tool
 
 #-------------------------------------------------------------------------------
-# Audio
-#-------------------------------------------------------------------------------
-packages+=("pipewire")       # Low-latency audio/video router and processor
-packages+=("wireplumber")    # Session / policy manager implementation
-packages+=("pipewire-alsa")  # ALSA configuration
-packages+=("pipewire-audio") # Audio support
-packages+=("pipewire-jack")  # JACK support
-packages+=("pipewire-pulse") # PulseAudio replacement
-packages+=("plasma-pa")      # Plasma applet for audio volume management using PulseAudio
-
-#-------------------------------------------------------------------------------
 # Plasma Desktop Utilities
 #-------------------------------------------------------------------------------
-#packages+=("yakuake")             # A drop-down terminal emulator based on KDE konsole technology
+#packages+=("flatpak")              # Linux application sandboxing and distribution framework (formerly xdg-app)
+#packages+=("flatpak-kcm")          # Flatpak Permissions Management KCM
+
+#packages+=("yakuake")              # A drop-down terminal emulator based on KDE konsole technology
 #packages+=("elisa")                # A simple music player aiming to provide a nice experience for its us
 #packages+=("gwenview")             # A fast and easy to use image viewer
 #packages+=("kamoso")               # A webcam recorder from KDE community
@@ -49,21 +41,28 @@ packages+=("plasma-pa")      # Plasma applet for audio volume management using P
 #packages+=("okular")               # Document Viewer
 #packages+=("partitionmanager")     # A KDE utility that allows you to manage disks, partitions, and file systems
 #packages+=("plasma-systemmonitor") # An interface for monitoring system sensors, process information and other system resources
+#packages+=("base-devel")           # Basic tools to build Arch Linux packages
+#packages+=("cpupower")             # Linux kernel tool to examine and tune power saving related features of your processor
+#packages+=("lm_sensors")           # Collection of user space tools for general SMBus access and hardware monitoring
+#packages+=("man-db")               # A utility for reading man pages
+#packages+=("ntfs-3g")              # NTFS filesystem driver and utilities
 
 #-------------------------------------------------------------------------------
-# Support
+# Audio
 #-------------------------------------------------------------------------------
-#packages+=("base-devel") # Basic tools to build Arch Linux packages
-#packages+=("cpupower")   # Linux kernel tool to examine and tune power saving related features of your processor
-#packages+=("lm_sensors") # Collection of user space tools for general SMBus access and hardware monitoring
-#packages+=("man-db")     # A utility for reading man pages
-#packages+=("ntfs-3g")    # NTFS filesystem driver and utilities
+packages+=("pipewire")       # Low-latency audio/video router and processor
+packages+=("wireplumber")    # Session / policy manager implementation
+packages+=("pipewire-alsa")  # ALSA configuration
+packages+=("pipewire-audio") # Audio support
+packages+=("pipewire-jack")  # JACK support
+packages+=("pipewire-pulse") # PulseAudio replacement
+packages+=("plasma-pa")      # Plasma applet for audio volume management using PulseAudio
 
 #-------------------------------------------------------------------------------
-# Graphics Drivers
+# Bluetooth
 #-------------------------------------------------------------------------------
-#packages+=("vulkan-radeon")       #	Radeon's Vulkan mesa driver
-#packages+=("lib32-vulkan-radeon") #	Radeon's Vulkan mesa driver (32-bit)
+#packages+=("bluez")     # Daemons for the bluetooth protocol stack
+#packages+=("bluedevil") # Integrate the Bluetooth technology within KDE workspace and applications
 
 #-------------------------------------------------------------------------------
 # Fonts
@@ -79,12 +78,6 @@ packages+=("noto-fonts")                  # Google Noto TTF fonts
 #packages+=("ttf-roboto")                  # Google's signature family of fonts
 #packages+=("ttf-ubuntu-font-family")      # Ubuntu font family
 #packages+=("ttf-profont-nerd")            # Patched font ProFont from nerd fonts library
-
-#-------------------------------------------------------------------------------
-# Bluetooth
-#-------------------------------------------------------------------------------
-packages+=("bluez")     # Daemons for the bluetooth protocol stack
-packages+=("bluedevil") # Integrate the Bluetooth technology within KDE workspace and applications
 
 #-------------------------------------------------------------------------------
 # Applications
@@ -109,4 +102,4 @@ pacman -Syu "${packages[@]}"
 # Enable services
 #-------------------------------------------------------------------------------
 systemctl enable sddm.service
-systemctl enable bluetooth.service
+#systemctl enable bluetooth.service
