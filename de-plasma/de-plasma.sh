@@ -23,29 +23,31 @@ packages+=("konsole")                # KDE terminal emulator
 packages+=("dolphin")                # KDE File Manager
 packages+=("ark")                    # Archiving Tool
 
+
 #-------------------------------------------------------------------------------
 # Plasma Desktop Utilities
 #-------------------------------------------------------------------------------
 #packages+=("flatpak")              # Linux application sandboxing and distribution framework (formerly xdg-app)
 #packages+=("flatpak-kcm")          # Flatpak Permissions Management KCM
+#packages+=("kcalc")                # Scientific Calculator
+#packages+=("man-db")               # A utility for reading man pages
+#packages+=("ntfs-3g")              # NTFS filesystem driver and utilities
+#packages+=("okular")               # Document Viewer
+#packages+=("partitionmanager")     # A KDE utility that allows you to manage disks, partitions, and file systems
+#packages+=("neovim")               # Fork of Vim aiming to improve user experience, plugins, and GUIs
 
 #packages+=("yakuake")              # A drop-down terminal emulator based on KDE konsole technology
 #packages+=("elisa")                # A simple music player aiming to provide a nice experience for its us
 #packages+=("gwenview")             # A fast and easy to use image viewer
 #packages+=("kamoso")               # A webcam recorder from KDE community
-#packages+=("kcalc")                # Scientific Calculator
 #packages+=("kcharselect")          # Character Selector
 #packages+=("kcolorchooser")        # Color Chooser
 #packages+=("kolourpaint")          # Paint Program
 #packages+=("ksystemlog")           # System log viewer tool
-#packages+=("okular")               # Document Viewer
-#packages+=("partitionmanager")     # A KDE utility that allows you to manage disks, partitions, and file systems
 #packages+=("plasma-systemmonitor") # An interface for monitoring system sensors, process information and other system resources
 #packages+=("base-devel")           # Basic tools to build Arch Linux packages
 #packages+=("cpupower")             # Linux kernel tool to examine and tune power saving related features of your processor
 #packages+=("lm_sensors")           # Collection of user space tools for general SMBus access and hardware monitoring
-#packages+=("man-db")               # A utility for reading man pages
-#packages+=("ntfs-3g")              # NTFS filesystem driver and utilities
 
 #-------------------------------------------------------------------------------
 # Audio
