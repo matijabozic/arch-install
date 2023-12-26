@@ -22,7 +22,8 @@ packages+=("sddm-kcm")               # KDE Config Module for SDDM
 packages+=("konsole")                # KDE terminal emulator
 packages+=("dolphin")                # KDE File Manager
 packages+=("ark")                    # Archiving Tool
-
+packages+=("noto-fonts")             # Google Noto TTF fonts
+packages+=("phonon-qt5-gstreamer")   # Phonon GStreamer backend for Qt5
 
 #-------------------------------------------------------------------------------
 # Plasma Desktop Utilities
@@ -63,13 +64,13 @@ packages+=("plasma-pa")      # Plasma applet for audio volume management using P
 #-------------------------------------------------------------------------------
 # Bluetooth
 #-------------------------------------------------------------------------------
-#packages+=("bluez")     # Daemons for the bluetooth protocol stack
-#packages+=("bluedevil") # Integrate the Bluetooth technology within KDE workspace and applications
+packages+=("bluez")     # Daemons for the bluetooth protocol stack
+packages+=("bluedevil") # Integrate the Bluetooth technology within KDE workspace and applications
 
 #-------------------------------------------------------------------------------
 # Fonts
 #-------------------------------------------------------------------------------
-packages+=("noto-fonts")                  # Google Noto TTF fonts
+
 #packages+=("adobe-source-code-pro-fonts") # Monospaced font family for user interface and coding environments
 #packages+=("otf-font-awesome")            # Iconic font designed for Bootstrap
 #packages+=("ttf-cascadia-code")           # A monospaced font by Microsoft that includes programming ligatures
@@ -93,7 +94,7 @@ packages+=("noto-fonts")                  # Google Noto TTF fonts
 #packages+=("thunderbird")       # All-in-one voice and text chat for gamers
 #packages+=("vlc")               # Multi-platform MPEG, VCD/DVD, and DivX player
 #packages+=("spectacle")         # KDE screenshot capture utility
-#packages+=("steam")            # Valve's digital software delivery system
+#packages+=("steam")             # Valve's digital software delivery system
 
 #-------------------------------------------------------------------------------
 # Install packages
@@ -104,4 +105,4 @@ pacman -Syu "${packages[@]}"
 # Enable services
 #-------------------------------------------------------------------------------
 systemctl enable sddm.service
-#systemctl enable bluetooth.service
+systemctl enable bluetooth.service
