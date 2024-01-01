@@ -28,14 +28,13 @@ packages+=("phonon-qt5-gstreamer")   # Phonon GStreamer backend for Qt5
 #-------------------------------------------------------------------------------
 # Plasma Desktop Utilities
 #-------------------------------------------------------------------------------
-packages+=("flatpak")              # Linux application sandboxing and distribution framework (formerly xdg-app)
-packages+=("flatpak-kcm")          # Flatpak Permissions Management KCM
+packages+=("neovim")               # Fork of Vim aiming to improve user experience, plugins, and GUIs
 packages+=("man-db")               # A utility for reading man pages
 packages+=("ntfs-3g")              # NTFS filesystem driver and utilities
 #packages+=("kcalc")                # Scientific Calculator
 #packages+=("okular")               # Document Viewer
 #packages+=("partitionmanager")     # A KDE utility that allows you to manage disks, partitions, and file systems
-#packages+=("neovim")               # Fork of Vim aiming to improve user experience, plugins, and GUIs
+
 
 #packages+=("yakuake")              # A drop-down terminal emulator based on KDE konsole technology
 #packages+=("elisa")                # A simple music player aiming to provide a nice experience for its us
@@ -70,7 +69,6 @@ packages+=("bluedevil") # Integrate the Bluetooth technology within KDE workspac
 #-------------------------------------------------------------------------------
 # Fonts
 #-------------------------------------------------------------------------------
-
 #packages+=("adobe-source-code-pro-fonts") # Monospaced font family for user interface and coding environments
 #packages+=("otf-font-awesome")            # Iconic font designed for Bootstrap
 #packages+=("ttf-cascadia-code")           # A monospaced font by Microsoft that includes programming ligatures
@@ -95,6 +93,12 @@ packages+=("bluedevil") # Integrate the Bluetooth technology within KDE workspac
 #packages+=("vlc")               # Multi-platform MPEG, VCD/DVD, and DivX player
 #packages+=("spectacle")         # KDE screenshot capture utility
 #packages+=("steam")             # Valve's digital software delivery system
+
+#-------------------------------------------------------------------------------
+# Flatpak
+#-------------------------------------------------------------------------------
+packages+=("flatpak")              # Linux application sandboxing and distribution framework (formerly xdg-app)
+packages+=("flatpak-kcm")          # Flatpak Permissions Management KCM
 
 #-------------------------------------------------------------------------------
 # Install packages
