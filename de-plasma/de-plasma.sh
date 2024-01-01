@@ -28,11 +28,11 @@ packages+=("phonon-qt5-gstreamer")   # Phonon GStreamer backend for Qt5
 #-------------------------------------------------------------------------------
 # Plasma Desktop Utilities
 #-------------------------------------------------------------------------------
-#packages+=("flatpak")              # Linux application sandboxing and distribution framework (formerly xdg-app)
-#packages+=("flatpak-kcm")          # Flatpak Permissions Management KCM
+packages+=("flatpak")              # Linux application sandboxing and distribution framework (formerly xdg-app)
+packages+=("flatpak-kcm")          # Flatpak Permissions Management KCM
+packages+=("man-db")               # A utility for reading man pages
+packages+=("ntfs-3g")              # NTFS filesystem driver and utilities
 #packages+=("kcalc")                # Scientific Calculator
-#packages+=("man-db")               # A utility for reading man pages
-#packages+=("ntfs-3g")              # NTFS filesystem driver and utilities
 #packages+=("okular")               # Document Viewer
 #packages+=("partitionmanager")     # A KDE utility that allows you to manage disks, partitions, and file systems
 #packages+=("neovim")               # Fork of Vim aiming to improve user experience, plugins, and GUIs
