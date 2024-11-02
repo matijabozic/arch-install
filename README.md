@@ -1,7 +1,7 @@
 Collection of bash scripts that automate installation of Arch Linux! <br />
 Heavily customized and experimental, use at your own risk!
 
-Connect to Wireless network
+Connect to Wireless network (Skip this step if you are using ethernet)
 ```
 iwctl
 station <device> connect <SSID>
@@ -43,4 +43,6 @@ Run script
 ```
 ./arch-install.sh
 ```
+
+Restart, and then install one of desktop environments!
 
