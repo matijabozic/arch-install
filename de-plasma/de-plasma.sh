@@ -106,3 +106,4 @@ pacman -Syu "${packages[@]}"
 # Enable services
 #-------------------------------------------------------------------------------
 systemctl enable sddm.service
+#systemctl enable bluetooth.service
