@@ -26,13 +26,15 @@ packages+=("noto-fonts")             # Google Noto TTF fonts
 #-------------------------------------------------------------------------------
 # Plasma Desktop Utilities
 #-------------------------------------------------------------------------------
-packages+=("neovim")               # Fork of Vim aiming to improve user experience, plugins, and GUIs
-packages+=("man-db")               # A utility for reading man pages
-packages+=("ntfs-3g")              # NTFS filesystem driver and utilities
-packages+=("kcalc")                # Scientific Calculator
-packages+=("okular")               # Document Viewer
-packages+=("partitionmanager")     # A KDE utility that allows you to manage disks, partitions, and file systems
-packages+=("plasma-systemmonitor") # An interface for monitoring system sensors, process information and other system resources
+packages+=("neovim")                # Fork of Vim aiming to improve user experience, plugins, and GUIs
+packages+=("man-db")                # A utility for reading man pages
+packages+=("ntfs-3g")               # NTFS filesystem driver and utilities
+packages+=("spectacle")              # KDE screenshot capture utility
+packages+=("kcalc")                 # Scientific Calculator
+packages+=("okular")                # Document Viewer
+packages+=("partitionmanager")      # A KDE utility that allows you to manage disks, partitions, and file systems
+packages+=("plasma-systemmonitor")  # An interface for monitoring system sensors, process information and other system resources
+packages+=("power-profiles-daemon") # Makes power profiles handling available over D-Bus
 
 #packages+=("yakuake")              # A drop-down terminal emulator based on KDE konsole technology
 #packages+=("elisa")                # A simple music player aiming to provide a nice experience for its us
@@ -86,7 +88,6 @@ packages+=("wireplumber")    # Session / policy manager implementation
 #packages+=("libreoffice-fresh") # LibreOffice branch which contains new features and program enhancements
 #packages+=("pinta")             # Drawing/editing program modeled after Paint.NET. It's goal is to provide a simplified alternative to GIMP for casual users
 #packages+=("qbittorrent")       # An advanced BitTorrent client programmed in C++, based on Qt toolkit and libtorrent-rasterbar
-#packages+=("spectacle")         # KDE screenshot capture utility
 #packages+=("thunderbird")       # All-in-one voice and text chat for gamers
 #packages+=("vlc")               # Multi-platform MPEG, VCD/DVD, and DivX player
 
