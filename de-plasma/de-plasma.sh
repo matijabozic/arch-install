@@ -62,8 +62,9 @@ packages+=("wireplumber")    # Session / policy manager implementation
 #-------------------------------------------------------------------------------
 # Bluetooth
 #-------------------------------------------------------------------------------
-#packages+=("bluez")     # Daemons for the bluetooth protocol stack
-#packages+=("bluedevil") # Integrate the Bluetooth technology within KDE workspace and applications
+packages+=("bluez")     # Daemons for the bluetooth protocol stack
+packages+=("bluez-qt")  # Qt wrapper for Bluez 5 DBus API
+packages+=("bluedevil") # Integrate the Bluetooth technology within KDE workspace and applications
 
 #-------------------------------------------------------------------------------
 # Fonts
@@ -106,4 +107,4 @@ pacman -Syu "${packages[@]}"
 # Enable services
 #-------------------------------------------------------------------------------
 systemctl enable sddm.service
-#systemctl enable bluetooth.service
+systemctl enable bluetooth.service
