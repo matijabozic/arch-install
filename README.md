@@ -1,4 +1,4 @@
-Collection of bash scripts that automate installation of Arch Linux! <br />
+Collection of bash scripts that automate installation of Arch Linux<br />
 Heavily customized and experimental, use at your own risk!
 
 Connect to Wireless network (Skip this step if you are using ethernet)
@@ -8,7 +8,7 @@ station <device> connect <SSID>
 <password>
 CTRL + D
 ```
-Install git
+Install git, so we can git clone this repository
 ```
 pacman -Sy git
 ```
@@ -45,4 +45,6 @@ Run script
 ```
 
 Restart, and then install one of desktop environments!
+
+Play around with arch-chroot /mnt so you can install desktop environment from the same session!
 
