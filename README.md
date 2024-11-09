@@ -1,5 +1,5 @@
-Collection of bash scripts that automate installation of Arch Linux<br />
-Heavily customized and experimental, use at your own risk!
+Bash script that installs Arch Linux with Plasma Desktop!x<br />
+Use at your own risk! This script will reformat your HDD!
 
 Connect to Wireless network (Skip this step if you are using ethernet)
 ```
@@ -13,15 +13,15 @@ Install git, so we can git clone this repository
 pacman -Sy git
 ```
 
-Change DNS and restart network so DNS change takes effect
-```
-vim /etc/systemd/resolved.conf
-systemctl restart systemd-resolved
-```
-
 Download script
 ```
 git clone https://github.com/matijabozic/arch-install
+```
+
+If you get errors while trying to ```git clone``` this repo, change DNS and restart network so DNS change takes effect
+```
+vim /etc/systemd/resolved.conf
+systemctl restart systemd-resolved
 ```
 
 Enter arch-install folder
@@ -29,7 +29,7 @@ Enter arch-install folder
 cd arch-install
 ```
 
-Edit config (add drive you want arch to install to)
+Edit config (add drive you want arch to install to, change locales, packages etc...)
 ```
 vim arch-install.conf
 ```
@@ -44,7 +44,4 @@ Run script
 ./arch-install.sh
 ```
 
-Restart, and then install one of desktop environments!
-
-Play around with arch-chroot /mnt so you can install desktop environment from the same session!
-
+Restart, should get you into SSDM from where you can login into Plasma Desktop!
