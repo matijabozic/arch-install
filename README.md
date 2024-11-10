@@ -1,4 +1,4 @@
-Bash script that installs Arch Linux with Plasma Desktop!x<br />
+Bash script that installs Arch Linux with Plasma Desktop!<br />
 Use at your own risk! This script will reformat your HDD!
 
 Connect to Wireless network (Skip this step if you are using ethernet)
@@ -8,7 +8,7 @@ station <device> connect <SSID>
 <password>
 CTRL + D
 ```
-Install git, so we can git clone this repository
+Install git, so you can git clone this repository
 ```
 pacman -Sy git
 ```
