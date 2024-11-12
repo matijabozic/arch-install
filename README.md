@@ -1,5 +1,5 @@
 Bash script that installs Arch Linux with Plasma Desktop!<br />
-Use at your own risk! This script will reformat your HDD!
+Use at your own risk! This script will reformat your HDD!!!
 
 Connect to Wireless network (Skip this step if you are using ethernet)
 ```
