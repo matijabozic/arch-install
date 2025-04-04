@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
-# shellcheck disable=SC1090
 
 # Bash script that installs Arch Linux following ArchLinux Wiki Installation guide:
 # https://wiki.archlinux.org/title/installation_guide
 #
 # GLOBAL VARIABLES USED THROUGH THE SCRIPT:
 #
+# Defined ./arch-install.conf:
 # ARCH_DISK
 # ARCH_BOOT_SIZE
 # ARCH_SWAP_SIZE
@@ -47,168 +47,14 @@ get_microcode() {
     fi
 }
 
-#-------------------------------------------------------------------------------
-# DISK PARTITIONS
-#-------------------------------------------------------------------------------
-ARCH_DISK=""
-ARCH_BOOT_SIZE=512
-ARCH_SWAP_SIZE=16384
-
-#-------------------------------------------------------------------------------
-# COMPUTER NAME
-#-------------------------------------------------------------------------------
-ARCH_HOSTNAME="Arch-PC"
-
-#-------------------------------------------------------------------------------
-# TIMEZONE
-#-------------------------------------------------------------------------------
-ARCH_TIMEZONE="Europe/Zagreb"
-
-#-------------------------------------------------------------------------------
-# LOCALES TO GENERATE
-#-------------------------------------------------------------------------------
-ARCH_LOCALE_GENERATE=()
-ARCH_LOCALE_GENERATE+=("en_US.UTF-8 UTF-8")
-ARCH_LOCALE_GENERATE+=("hr_HR.UTF-8 UTF-8")
-
-#-------------------------------------------------------------------------------
-# LOCALES TO USE - https://man.archlinux.org/man/locale.7
-#-------------------------------------------------------------------------------
-ARCH_LOCALE=()
-
-ARCH_LOCALE+=("LANG=en_US.UTF-8 UTF-8")
-ARCH_LOCALE+=("LANGUAGE=en_US.UTF-8 UTF-8")
-
-ARCH_LOCALE+=("LC_CTYPE=C.UTF-8")
-ARCH_LOCALE+=("LC_COLLATE=C.UTF-8")
-ARCH_LOCALE+=("LC_MESSAGES=hr_HR.UTF-8 UTF-8")
-ARCH_LOCALE+=("LC_MONETARY=hr_HR.UTF-8 UTF-8")
-ARCH_LOCALE+=("LC_NUMERIC=hr_HR.UTF-8 UTF-8")
-ARCH_LOCALE+=("LC_TIME=hr_HR.UTF-8 UTF-8")
-
-ARCH_LOCALE+=("LC_ADDRESS=hr_HR.UTF-8 UTF-8")
-ARCH_LOCALE+=("LC_IDENTIFICATION=hr_HR.UTF-8 UTF-8")
-ARCH_LOCALE+=("LC_MEASUREMENT=hr_HR.UTF-8 UTF-8")
-ARCH_LOCALE+=("LC_NAME=hr_HR.UTF-8 UTF-8")
-ARCH_LOCALE+=("LC_PAPER=hr_HR.UTF-8 UTF-8")
-ARCH_LOCALE+=("LC_TELEPHONE=hr_HR.UTF-8 UTF-8")
-
-#-------------------------------------------------------------------------------
-# KEYBOARD SETTINGS
-#-------------------------------------------------------------------------------
-ARCH_VCONSOLE=()
-ARCH_VCONSOLE+=("KEYMAP=us")
-# ARCH_VCONSOLE+=("KEYMAP_TOGGLE=")
-# ARCH_VCONSOLE+=("FONT=")
-# ARCH_VCONSOLE+=("FONT_MAP=")
-# ARCH_VCONSOLE+=("FONT_UNIMAP=")
-
-#-------------------------------------------------------------------------------
-# ARCH SERVICES TO ENABLE AFTER INSTALL
-#-------------------------------------------------------------------------------
-ARCH_SERVICES=()
-ARCH_SERVICES+=("sddm.service")
-ARCH_SERVICES+=("NetworkManager")
-ARCH_SERVICES+=("bluetooth.service")
-
-#-------------------------------------------------------------------------------
-# BASE ARCH LINUX INSTALLATION PACKAGES
-#-------------------------------------------------------------------------------
-ARCH_PACKAGES=()
-ARCH_PACKAGES+=("base")             # Minimal package set to define a basic Arch Linux installation
-ARCH_PACKAGES+=("linux")            # The Linux kernel and modules
-ARCH_PACKAGES+=("linux-firmware")   # Firmware files for Linux
-ARCH_PACKAGES+=("networkmanager")   # Network connection manager and user applications
-ARCH_PACKAGES+=("sudo")             # Give certain users the ability to run some commands as root
-ARCH_PACKAGES+=("$(get_microcode)") # Adds amd-ucode or intel-ucode automatically, depending on your cpu
-
-#-------------------------------------------------------------------------------
-# PLASMA DESKTOP PACKAGES
-#-------------------------------------------------------------------------------
-ARCH_PACKAGES+=("plasma-desktop") # KDE Plasma Desktop
-ARCH_PACKAGES+=("plasma-nm")      # Plasma applet written in QML for managing network connections
-ARCH_PACKAGES+=("kscreen")        # KDE screen management software
-ARCH_PACKAGES+=("sddm")           # QML based X11 and Wayland display manager
-ARCH_PACKAGES+=("sddm-kcm")       # KDE Config Module for SDDM
-ARCH_PACKAGES+=("konsole")        # KDE terminal emulator
-ARCH_PACKAGES+=("dolphin")        # KDE File Manager
-ARCH_PACKAGES+=("ark")            # Archiving Tool
-ARCH_PACKAGES+=("noto-fonts")     # Google Noto TTF fonts
-
-#-------------------------------------------------------------------------------
-# PLASMA DESKTOP UTILITIES
-#-------------------------------------------------------------------------------
-ARCH_PACKAGES+=("kcalc")                 # Scientific Calculator
-ARCH_PACKAGES+=("ksystemlog")            # System log viewer tool
-ARCH_PACKAGES+=("kwalletmanager")        # Wallet management tool
-ARCH_PACKAGES+=("plasma-systemmonitor")  # An interface for monitoring system sensors, process information and other system resources
-ARCH_PACKAGES+=("power-profiles-daemon") # Makes power profiles handling available over D-Bus
-ARCH_PACKAGES+=("spectacle")             # KDE screenshot capture utility
-#ARCH_PACKAGES+=("base-devel")           # Basic tools to build Arch Linux ARCH_PACKAGES
-#ARCH_PACKAGES+=("cpupower")             # Linux kernel tool to examine and tune power saving related features of your processor
-#ARCH_PACKAGES+=("discover")             # KDE and Plasma resources management GUI
-#ARCH_PACKAGES+=("elisa")                # A simple music player aiming to provide a nice experience for its us
-#ARCH_PACKAGES+=("kamoso")               # A webcam recorder from KDE community
-#ARCH_PACKAGES+=("kcharselect")          # Character Selector
-#ARCH_PACKAGES+=("kcolorchooser")        # Color Chooser
-#ARCH_PACKAGES+=("kolourpaint")          # Paint Program
-#ARCH_PACKAGES+=("lm_sensors")           # Collection of user space tools for general SMBus access and hardware monitoring
-#ARCH_PACKAGES+=("okular")               # Document Viewer
-#ARCH_PACKAGES+=("partitionmanager")     # A KDE utility that allows you to manage disks, partitions, and file systems
-#ARCH_PACKAGES+=("yakuake")              # A drop-down terminal emulator based on KDE konsole technology
-
-#-------------------------------------------------------------------------------
-# OTHER UTILITIES
-#-------------------------------------------------------------------------------
-ARCH_PACKAGES+=("dosfstools") # DOS filesystem utilities
-ARCH_PACKAGES+=("man-db")     # A utility for reading man pages
-ARCH_PACKAGES+=("neovim")     # Fork of Vim aiming to improve user experience, plugins, and GUIs
-ARCH_PACKAGES+=("ntfs-3g")    # NTFS filesystem driver and utilities
-
-#-------------------------------------------------------------------------------
-# AUDIO
-#-------------------------------------------------------------------------------
-ARCH_PACKAGES+=("pipewire")       # Low-latency audio/video router and processor
-ARCH_PACKAGES+=("pipewire-alsa")  # ALSA configuration
-ARCH_PACKAGES+=("pipewire-audio") # Audio support
-ARCH_PACKAGES+=("pipewire-jack")  # JACK support
-ARCH_PACKAGES+=("pipewire-pulse") # PulseAudio replacement
-ARCH_PACKAGES+=("plasma-pa")      # Plasma applet for audio volume management using PulseAudio
-ARCH_PACKAGES+=("wireplumber")    # Session / policy manager implementation
-
-#-------------------------------------------------------------------------------
-# BLUETOOTH
-#-------------------------------------------------------------------------------
-ARCH_PACKAGES+=("bluez")     # Daemons for the bluetooth protocol stack
-ARCH_PACKAGES+=("bluez-qt")  # Qt wrapper for Bluez 5 DBus API
-ARCH_PACKAGES+=("bluedevil") # Integrate the Bluetooth technology within KDE workspace and applications
-
-#-------------------------------------------------------------------------------
-# FONTS
-#-------------------------------------------------------------------------------
-#ARCH_PACKAGES+=("adobe-source-code-pro-fonts") # Monospaced font family for user interface and coding environments
-#ARCH_PACKAGES+=("otf-font-awesome")            # Iconic font designed for Bootstrap
-#ARCH_PACKAGES+=("ttf-cascadia-code")           # A monospaced font by Microsoft that includes programming ligatures
-#ARCH_PACKAGES+=("ttf-fira-code")               # Monospaced font with programming ligatures
-#ARCH_PACKAGES+=("ttf-jetbrains-mono")          # Typeface for developers, by JetBrains
-#ARCH_PACKAGES+=("ttf-liberation")              # Font family which aims at metric compatibility with Arial, Times New Roman, and Courier New
-#ARCH_PACKAGES+=("ttf-profont-nerd")            # Patched font ProFont from nerd fonts library
-#ARCH_PACKAGES+=("ttf-roboto")                  # Google's signature family of fonts
-#ARCH_PACKAGES+=("ttf-roboto-mono")             # A monospaced addition to the Roboto type family.
-#ARCH_PACKAGES+=("ttf-ubuntu-font-family")      # Ubuntu font family
-
-#-------------------------------------------------------------------------------
-# APPLICATIONS
-#-------------------------------------------------------------------------------
-#ARCH_PACKAGES+=("firefox")           # Fast, Private & Safe Web Browser
-#ARCH_PACKAGES+=("thunderbird")       # All-in-one voice and text chat for gamers
-#ARCH_PACKAGES+=("keepassxc")         # Cross-platform community-driven port of Keepass password manager
-#ARCH_PACKAGES+=("libreoffice-fresh") # LibreOffice branch which contains new features and program enhancements
-#ARCH_PACKAGES+=("mpv")               # a free, open source, and cross-platform media player
-#ARCH_PACKAGES+=("qbittorrent")       # An advanced BitTorrent client programmed in C++, based on Qt toolkit and libtorrent-rasterbar
+# ------------------------------------------------------------------------------
+# Include variables defined in ./arch-install.conf
+# ------------------------------------------------------------------------------
+#shellcheck disable=SC1091
+source ./arch-install.conf
 
 # ------------------------------------------------------------------------------
-# Generate variables not defined
+# Generate variables not defined in ./arch-install.conf
 # ------------------------------------------------------------------------------
 [[ "$ARCH_DISK" = "/dev/nvm"* ]] && ARCH_BOOT_PARTITION="${ARCH_DISK}p1" || ARCH_BOOT_PARTITION="${ARCH_DISK}1"
 [[ "$ARCH_DISK" = "/dev/nvm"* ]] && ARCH_SWAP_PARTITION="${ARCH_DISK}p2" || ARCH_SWAP_PARTITION="${ARCH_DISK}2"
