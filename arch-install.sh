@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-#
+# shellcheck disable=SC1090
+
 # Bash script that installs Arch Linux following ArchLinux Wiki Installation guide:
 # https://wiki.archlinux.org/title/installation_guide
 #
