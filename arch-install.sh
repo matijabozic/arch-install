@@ -33,6 +33,19 @@ set -e          # Exit script if one of the commands fail
 set -u          # Treat unset variables as an error, and immediately exit.
 set -o pipefail # Exit on errors in pipeline
 
+# ------------------------------------------------------------------------------
+# Helper function that detects and 'returns' CPU microcode
+# ------------------------------------------------------------------------------
+get_microcode() {
+    if lscpu | grep -q "GenuineIntel"; then
+        echo "intel-ucode"
+    elif lscpu | grep -q "AuthenticAMD"; then
+        echo "amd-ucode"
+    else
+        exit 1
+    fi
+}
+
 #-------------------------------------------------------------------------------
 # DISK PARTITIONS
 #-------------------------------------------------------------------------------
@@ -235,19 +248,6 @@ get_user_data() {
         fi
     done
     clear
-}
-
-# ------------------------------------------------------------------------------
-# Helper function that detects and 'returns' CPU microcode
-# ------------------------------------------------------------------------------
-get_microcode() {
-    if lscpu | grep -q "GenuineIntel"; then
-        echo "intel-ucode"
-    elif lscpu | grep -q "AuthenticAMD"; then
-        echo "amd-ucode"
-    else
-        exit 1
-    fi
 }
 
 # ------------------------------------------------------------------------------
