@@ -227,14 +227,6 @@ set_timezone() {
 }
 
 # ------------------------------------------------------------------------------
-# Enable NTP synchronization and set timezone
-# ------------------------------------------------------------------------------
-set_time_sync() {
-    timedatectl set-ntp true
-    timedatectl set-timezone "$ARCH_TIMEZONE"
-}
-
-# ------------------------------------------------------------------------------
 # Install and configure boot loader
 # ------------------------------------------------------------------------------
 install_bootloader() {
@@ -290,9 +282,12 @@ main() {
     set_localization
     set_keyboard_layout
     set_timezone
-    set_time_sync
     install_bootloader
     enable_services
 }
 
 main
+
+# timedatectl set-ntp true
+# timedatectl set-timezone "$ARCH_TIMEZONE"
+# timedatectl status
