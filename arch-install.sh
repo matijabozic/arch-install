@@ -287,7 +287,3 @@ main() {
 }
 
 main
-
-# timedatectl set-ntp true
-# timedatectl set-timezone "$ARCH_TIMEZONE"
-# timedatectl status
