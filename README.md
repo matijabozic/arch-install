@@ -1,4 +1,4 @@
-# 🏗️ Arch Linux auto-install script
+# Arch Linux auto-install script
 
 One-command automated Arch Linux installation with KDE Plasma Desktop.
 Set the target disk, run the script, enter your passwords, and walk away.
